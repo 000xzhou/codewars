@@ -1,0 +1,55 @@
+function dirReduc(arr) {
+    let ns = 0;
+    let we = 0;
+    arr.forEach(element => {
+        if (element === "NORTH") {
+            ns++
+        }
+        if (element === "SOUTH") {
+            ns--
+        }
+        if (element === "WEST") {
+            we++
+        }
+        if (element === "EAST") {
+            we--
+        }
+
+    });
+    let z = []
+    let i = 0
+
+    //hm...
+    // They want it to be in order? should I make a graph?
+    if (ns > 0) {
+        do {
+            z.push("NORTH")
+            i++
+        }
+        while (i < ns)
+
+    } else if (ns === 0) {
+
+    } else {
+        z.push("SOUTH")
+    }
+
+    if (we > 0) {
+        do {
+            z.push("WEST")
+            i++
+        }
+        while (i < we)
+    } else if (we === 0) {
+
+    } else {
+        z.push("EAST")
+    }
+    return z
+}
+
+console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]))
+console.log(dirReduc(["NORTH", "SOUTH", "WEST", "EAST", "SOUTH", "NORTH", "NORTH", "NORTH", "NORTH", "EAST", "WEST", "NORTH", "SOUTH", "WEST", "EAST"]))
+console.log(dirReduc(["NORTH", "SOUTH", "WEST", "EAST", "SOUTH", "NORTH", "NORTH", "NORTH", "NORTH", "EAST", "WEST", "NORTH", "SOUTH", "WEST", "EAST"]))
+console.log(dirReduc(["EAST", "WEST", "SOUTH", "NORTH", "SOUTH", "WEST", "WEST", "EAST", "SOUTH", "NORTH"]))
